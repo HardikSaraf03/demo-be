@@ -15,8 +15,7 @@ const usersList = async (req: Request, res: Response) => {
         data: null,
       });
 
-    return;
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Admin authenticated",
       data: users,

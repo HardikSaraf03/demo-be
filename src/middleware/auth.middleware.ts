@@ -31,7 +31,7 @@ export const auth = async (
 
     const tokenData: any = await decodeToken(token);
     if (!tokenData.data) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: "Invalid token",
         data: null,
@@ -41,7 +41,7 @@ export const auth = async (
     const user = userModel.findOne({ _id: tokenData.data.userId });
 
     if (!user) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: "Invalid token",
         data: null,
